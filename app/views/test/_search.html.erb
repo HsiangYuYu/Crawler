@@ -1,0 +1,37 @@
+
+
+
+<% if @data!=nil %>
+    <div class="switchBar">
+      <%= link_to "精準度", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" , :page => 1 , :view=> 1), remote: true %>&nbsp
+      <%= link_to "價錢由低至高", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 2), remote: true  %>&nbsp
+      <%= link_to "價錢由高至低", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 3), remote: true %>&nbsp
+      <%= link_to "新上市", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 4), remote: true %>
+    </div>
+
+    <% @data.each do |d| %>
+        <%= image_tag("http://ec1img.pchome.com.tw/#{d['picB']}", size: "240") %><br>
+        <p><%= d['name']%></p>
+        <p>$<%= d['price']%></p>
+        <p><%= link_to "點我去購買", "http://24h.pchome.com.tw/prod/#{d['Id']}",:target => "_blank" , class: "btn btn-default"%></p><hr>
+    <% end %>
+    
+    <ul class="pager">
+<%#顯示上一頁按鈕%>
+<%# if @page.to_i>1 && @page.to_i <= @totalPage.to_i %> 
+    <li><%= link_to "previous page", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" , :page => @page.to_i-1 , :view => @view) , remote: true, id:"pageButton"%></li>
+<%# end %>
+  <!--&nbsp-->
+<%#顯示下一頁按鈕%>
+<%# if @page.to_i>=1 && @page.to_i<@totalPage.to_i %> 
+    <li><%= link_to "next page", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" , :page => @page.to_i+1 , :view => @view) , remote: true , id:"pageButton" %></li>
+<%# end %>
+</ul>
+    
+<% end %>
+
+
+
+
+
+
