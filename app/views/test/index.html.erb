@@ -2,7 +2,7 @@
   <%= form_tag test_search_path, :method => 'get' , remote: true  do %>
 <div class="col-lg-6">
   <div class="input-group">
-        <%= text_field_tag :search ,params[:search] , class:"form-control",placeholder:"Search for..." %>
+        <%= text_field_tag :search ,params[:search] , class:"form-control", placeholder:"Search for...", autocomplete:"off" %>
         <%= hidden_field_tag :page, params[:page]=1 %> <%#傳送初始頁碼 %>
         <%= hidden_field_tag :view, params[:view]=1 %>
     <span class="input-group-btn">

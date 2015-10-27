@@ -1,10 +1,12 @@
 
+
+
 <% if @data!=nil %>
     <div class="pagination">
-      <li><%= link_to "精準度", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" , :page => 1 , :view=> 1), remote: true %></li>
-      <li><%= link_to "價錢由低至高", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 2), remote: true  %></li>
-      <li><%= link_to "價錢由高至低", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 3), remote: true %></li>
-      <li><%= link_to "新上市", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 4), remote: true, id:"aa" %></li>
+      <li><%= link_to "精準度", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" , :page => 1 , :view=> 1), remote: true , :style =>"background-color: #{@color1}"%></li>
+      <li><%= link_to "價錢由低至高", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 2), remote: true , :style =>"background-color: #{@color2}"%></li>
+      <li><%= link_to "價錢由高至低", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 3), remote: true , :style =>"background-color: #{@color3}"%></li>
+      <li><%= link_to "新上市", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 4), remote: true , :style =>"background-color: #{@color4}"%></li>
     </div>
     <br><br>
     <% @data.each do |d| %>
@@ -29,10 +31,19 @@
   </ul>
     
 <% else %>
-    <p>No result</p>
+    <p id="no">No result!!</p>
 <% end %>
 
 
+<script>
+   for(var i = 0 ; i < 4 ; i++){
+       if($("li a").eq(i).css("background-color")=="rgb(222, 222, 222)"){
+           $("li a").eq(i).removeAttr("href");
+           $("li a").eq(i).css("cursor","default");
+           
+       }
+   }  
+</script>
 
 
 

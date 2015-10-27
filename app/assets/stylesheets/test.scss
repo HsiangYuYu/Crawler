@@ -68,19 +68,22 @@ body{
 .pagination{
     font-size: 15px;
     position: absolute;
-    left: 346px;
+    left: 400px;
     top: 73px;
     margin: 0px 0 !important;
     border-radius: 0px;
 }
-// .submit_form{
-//     position: absolute;
-//     left: 10px;
-//     top: 74px;
-// }
 .col-lg-6{
     width: 22% !important;
     position: absolute !important;
     left: 10px;
     top: 74px;
+}
+#no{
+    position: absolute;
+    top: 120px;
+    left: 27px;
+}
+li > a{
+    color: black !important;
 }
