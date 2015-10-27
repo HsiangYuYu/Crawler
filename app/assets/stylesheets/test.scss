@@ -2,18 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 a#pageButton{
-    font-size: 30px;
-}
-
-.switchBar{
-    position: relative;
-    top: -26px;
-    left: 255px;
-    font-size: 20px;
+    font-size: 25px;
 }
 p{
     font-size: 20px;
 }
 body{
     padding-left: 10px;
+}
+.pagination{
+    font-size: 15px;
+    position: relative;
+    left: 234px;
+    top: -30px;
+    margin: 0px 0 !important;
 }
