@@ -4,14 +4,16 @@
       <li><%= link_to "精準度", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" , :page => 1 , :view=> 1), remote: true %></li>
       <li><%= link_to "價錢由低至高", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 2), remote: true  %></li>
       <li><%= link_to "價錢由高至低", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 3), remote: true %></li>
-      <li><%= link_to "新上市", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 4), remote: true %></li>
+      <li><%= link_to "新上市", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 4), remote: true, id:"aa" %></li>
     </div>
+    <br><br>
     <% @data.each do |d| %>
         <br>
         <%= image_tag("http://ec1img.pchome.com.tw/#{d['picB']}", size: "240") %><br>
         <p><%= d['name']%></p>
         <p>$<%= d['price']%></p>
-        <p><%= link_to "點我去購買", "http://24h.pchome.com.tw/prod/#{d['Id']}",:target => "_blank" , class: "btn btn-default"%></p><hr>
+        <p><%= link_to "點我去購買", "http://24h.pchome.com.tw/prod/#{d['Id']}",:target => "_blank" , class: "btn btn-default"%></p>
+        <hr>
     <% end %>
     
   <ul class="pager">

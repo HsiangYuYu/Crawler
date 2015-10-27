@@ -1,6 +1,61 @@
 // Place all the styles related to the test controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* v1.0 | 20080212 */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+// --------------------------------------------above is reset css---------------------
 a#pageButton{
     font-size: 25px;
 }
@@ -8,12 +63,24 @@ p{
     font-size: 20px;
 }
 body{
-    padding-left: 10px;
+    padding-left: 15px;
 }
 .pagination{
     font-size: 15px;
-    position: relative;
-    left: 234px;
-    top: -30px;
+    position: absolute;
+    left: 346px;
+    top: 73px;
     margin: 0px 0 !important;
+    border-radius: 0px;
+}
+// .submit_form{
+//     position: absolute;
+//     left: 10px;
+//     top: 74px;
+// }
+.col-lg-6{
+    width: 22% !important;
+    position: absolute !important;
+    left: 10px;
+    top: 74px;
 }

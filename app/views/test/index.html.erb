@@ -1,14 +1,18 @@
 <h1>Pchome Shopping Crawler</h1>
-  <%= form_tag test_search_path, :method => 'get' , remote: true do %>
-    <%= text_field_tag :search ,params[:search] %>
-    <%= hidden_field_tag :page, params[:page]=1 %> <%#傳送初始頁碼 %>
-    <%= hidden_field_tag :view, params[:view]=1 %>
-    <%= submit_tag "Search"%>
+  <%= form_tag test_search_path, :method => 'get' , remote: true  do %>
+<div class="col-lg-6">
+  <div class="input-group">
+        <%= text_field_tag :search ,params[:search] , class:"form-control",placeholder:"Search for..." %>
+        <%= hidden_field_tag :page, params[:page]=1 %> <%#傳送初始頁碼 %>
+        <%= hidden_field_tag :view, params[:view]=1 %>
+    <span class="input-group-btn">
+        <%= submit_tag "Search", class:"btn btn-default"%>
+    </span>
+  </div>
+</div>
 <% end %>
-
-
-
 
 <span id = 'result'>
     <% render 'test/search' %>
 </span>
+
