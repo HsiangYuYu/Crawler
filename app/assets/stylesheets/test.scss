@@ -74,7 +74,7 @@ body{
     border-radius: 0px;
 }
 .col-lg-6{
-    width: 22% !important;
+    width: 360px !important;
     position: absolute !important;
     left: 10px;
     top: 74px;
@@ -86,4 +86,13 @@ body{
 }
 li > a{
     color: black !important;
+}
+
+.navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: auto;
 }

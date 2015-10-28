@@ -1,6 +1,4 @@
 
-
-
 <% if @data!=nil %>
     <div class="pagination">
       <li><%= link_to "精準度", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" , :page => 1 , :view=> 1), remote: true , :style =>"background-color: #{@color1}"%></li>
@@ -9,40 +7,48 @@
       <li><%= link_to "新上市", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 4), remote: true , :style =>"background-color: #{@color4}"%></li>
     </div>
     <br><br>
-    <% @data.each do |d| %>
+    <% @data.each_with_index do |d , i| %>
         <br>
         <%= image_tag("http://ec1img.pchome.com.tw/#{d['picB']}", size: "240") %><br>
         <p><%= d['name']%></p>
         <p>$<%= d['price']%></p>
-        <p><%= link_to "點我去購買", "http://24h.pchome.com.tw/prod/#{d['Id']}",:target => "_blank" , class: "btn btn-default"%></p>
+          <%= link_to "點我去購買", "http://24h.pchome.com.tw/prod/#{d['Id']}",:target => "_blank" , class: "btn btn-default"%>
+          <%= link_to "加入收藏",test_create_path(name: d['name'], price: d['price'], i: i),remote: true , class: "btn btn-default" %>
+           <span class="showResult" style="color:#3e78e5">
+               <h1></h1>
+           </span>
         <hr>
     <% end %>
     
   <ul class="pager">
-<%#顯示上一頁按鈕%>
-<%# if @page.to_i>1 && @page.to_i <= @totalPage.to_i %> 
+<%#顯示上下頁按鈕%>
+    
     <li><%= link_to "previous page", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" , :page => @page.to_i-1 , :view => @view) , remote: true, id:"pageButton"%></li>
-<%# end %>
-  <!--&nbsp-->
-<%#顯示下一頁按鈕%>
-<%# if @page.to_i>=1 && @page.to_i<@totalPage.to_i %> 
+ 
     <li><%= link_to "next page", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" , :page => @page.to_i+1 , :view => @view) , remote: true , id:"pageButton" %></li>
-<%# end %>
+  
   </ul>
     
 <% else %>
     <p id="no">No result!!</p>
 <% end %>
 
-
 <script>
+//去除選擇的view的href
    for(var i = 0 ; i < 4 ; i++){
        if($("li a").eq(i).css("background-color")=="rgb(222, 222, 222)"){
            $("li a").eq(i).removeAttr("href");
            $("li a").eq(i).css("cursor","default");
-           
        }
    }  
+ //去除選擇的page的href  
+  var page = <%= @page %>;
+  if (page ==1){
+      var previous = $("li a#pageButton").eq(0);
+      previous.css("background-color","rgb(222, 222, 222)");
+      previous.css("cursor","default");
+      previous.removeAttr("href");
+  }
 </script>
 
 

@@ -1,0 +1,16 @@
+<% if @check_in_cart%>
+    
+    $(".showResult h1").eq(<%=@i %>).html("Already have!").delay(1000).queue(function(n) {
+        $(this).html("");
+        n();
+    }).fadeOut(500).fadeIn();
+
+<% else %>
+    
+    $(".showResult h1").eq(<%=@i %>).html("Successfully added!").delay(1000).queue(function(n) {
+        $(this).html("");
+        n();
+    }).fadeOut(500).fadeIn();
+
+<% end %>
+
