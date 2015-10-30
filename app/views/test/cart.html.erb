@@ -1,0 +1,17 @@
+<ul class="nav nav-tabs">
+        <li><%= link_to "Pchome搜尋",test_index_path %></li>
+        <li class="active"><a style="background-color:#EEEEEE">購物車</a></li>
+        <!--<li><a href="#">Page 2</a></li>-->
+        <!--<li><a href="#">Page 3</a></li>-->
+</ul>
+
+<% @carts.each_with_index do |c,i| %>
+<div id = "cart_row_<%= c.id %>">
+        <br>
+        <%= image_tag("http://ec1img.pchome.com.tw/#{c.picture}", size: "160") %><br>
+        <p><%= c.name%></p>
+        <p>$<%= c.price%></p>
+          <%= link_to "刪除",test_destroy_path(id: c.id), remote: true ,class: "btn btn-default" %>
+        <hr>
+</div>
+<% end %>

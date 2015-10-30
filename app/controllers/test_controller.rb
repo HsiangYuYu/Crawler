@@ -39,7 +39,7 @@ class TestController < ApplicationController
     def create
       @i = params[:i]
       if(!Cart.exists?(name: params[:name])) #如果資料庫沒有那筆名子
-          Cart.create(name: params[:name] , price: params[:price])
+          Cart.create(name: params[:name] , price: params[:price] , picture: params[:picture])
           @check_in_cart = false
       else
           @check_in_cart = true
@@ -47,5 +47,16 @@ class TestController < ApplicationController
           respond_to do |format|
             format.js
           end
+    end
+    
+    def cart
+        @carts = Cart.all
+    end
+    
+    def destroy
+        Cart.destroy(params[:id])
+        respond_to do |format|
+          format.js
+        end
     end
 end

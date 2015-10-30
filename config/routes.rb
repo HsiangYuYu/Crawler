@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'test/index' => 'test#index'
   get 'test/search' => 'test#search'
   get 'test/create' => 'test#create'
+  get 'test/cart' =>'test#cart'
+  get 'test/destroy' =>'test#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

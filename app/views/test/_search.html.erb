@@ -6,18 +6,25 @@
       <li><%= link_to "價錢由高至低", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 3), remote: true , :style =>"background-color: #{@color3}"%></li>
       <li><%= link_to "新上市", test_search_path(:search => @original_name , :utf8=>"✓" , :commit=>"Search" ,:page => 1 , :view=> 4), remote: true , :style =>"background-color: #{@color4}"%></li>
     </div>
-    <br><br>
-    <% @data.each_with_index do |d , i| %>
-        <br>
-        <%= image_tag("http://ec1img.pchome.com.tw/#{d['picB']}", size: "240") %><br>
-        <p><%= d['name']%></p>
-        <p>$<%= d['price']%></p>
-          <%= link_to "點我去購買", "http://24h.pchome.com.tw/prod/#{d['Id']}",:target => "_blank" , class: "btn btn-default"%>
-          <%= link_to "加入收藏",test_create_path(name: d['name'], price: d['price'], i: i),remote: true , class: "btn btn-default" %>
-           <span class="showResult" style="color:#3e78e5">
-               <h1></h1>
-           </span>
-        <hr>
+    <% @data.each_slice(2).with_index do |data,i|%>
+        <div class="row">
+            <% data.each_with_index do |d,j| %>
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <%= image_tag("http://ec1img.pchome.com.tw/#{d['picB']}", size: "240") %>
+                            <div class="caption">
+                                <p><%= d['name']%></p>
+                                <p>$<%= d['price']%></p>
+                                  <%= link_to "點我去購買", "http://24h.pchome.com.tw/prod/#{d['Id']}",:target => "_blank" , class: "btn btn-default"%>
+                                  <%= link_to "加入收藏",test_create_path(name: d['name'], price: d['price'], i: i*2+j , picture: d['picB']),remote: true , class: "btn btn-default" %>
+                                <span class="showResult" style="color:#3e78e5">
+                                   <h1></h1>
+                                  </span>
+                            </div>
+                    </div>
+                </div> 
+            <% end %>
+        </div>
     <% end %>
     
   <ul class="pager">
