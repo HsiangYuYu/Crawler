@@ -56,6 +56,14 @@
       previous.css("cursor","default");
       previous.removeAttr("href");
   }
+  if(page == <%= @totalPage %>){
+      console.log(true);
+      var next = $("li a#pageButton").eq(1);
+      next.css("background-color","rgb(222, 222, 222)");
+      next.css("cursor","default");
+      next.removeAttr("href");
+  }
+  
 </script>
 
 
